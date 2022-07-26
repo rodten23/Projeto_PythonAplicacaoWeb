@@ -4,15 +4,25 @@
 # ##estou criando minha primeira rota @app.route("/")
 # ##CRIA UMA FUNÇÃO QUE RETORNA HELLO WORLD def hello(): return "Hello World" 
 from flask import Flask, render_template
+from datetime import datetime
 
 app = Flask("Ola")
 
-@app.route("/")
-@app.route("/ola")
-def ola():
-    return "Olá, Mundo!"
+posts = [
+    {
+        "title": "O meu primeiro post.",
+        "body": "Aqui é o texto do post.",
+        "author": "Rodrigo",
+        "created": datetime(2022,7,25)
+    },
+    {
+        "title": "O meu segundo post.",
+        "body": "Aqui é o texto do post.",
+        "author": "Sara",
+        "created": datetime(2022,7,26)
+    },
+]
 
-@app.route("/contato")
-def contato():
-    return render_template("/index.html")
-    
+@app.route("/")
+def index():
+    return render_template("index.html", posts=posts)

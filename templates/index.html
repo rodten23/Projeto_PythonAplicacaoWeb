@@ -1,21 +1,28 @@
-<!DOCTYPE html>
-
 <html>
     <head>
         <meta charset='utf-8'>
-        <title>Contatos</title>
+        <title> MEU BLOG </title>
     </head>
     <body>
-        <h2>Rodrigo Alves Tenório</h2>
-        <p>rodten23@gmail.com</p>
-        <a href="https://cgrafica.com.br"> Um link de teste </a>
-        <ol>
-            <li>item 1</li>
-            <li>item 2</li>
-            <li>item 3</li>
-            <li>item 4</li>
-            <li>item 5</li>
-            <li>item 6</li>
-        </ol>
+        <h1> Meu Blog </h1>
+
+
+        {% for post in posts %}
+            <article class="post">
+                <header>
+                    <div>
+                        <h2> {{ post.title }} </h2>
+                        <div class="about">
+                            by {{ post.author }} on {{ post.created.strftime('%d/%m/%Y') }}
+                        </div>
+                    </div>
+                </header>
+                <p class="body"> {{ post.body }} </p> 
+            </article>
+            {% if not loop.last %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+
     </body>
 </html>
