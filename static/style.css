@@ -1,6 +1,6 @@
 html {
     font-family: sans-serif;
-    background: #eee;
+    background: rgb(162, 212, 245);
     padding: 1rem;
 }
 
@@ -44,3 +44,7 @@ hr {
     white-space: pre-line;
 }
 
+.no-posts {
+    font-style: italic;
+    color: gray;
+}
