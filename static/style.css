@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    max-width: 480px;
+    max-width: 840px;
     margin: 0 auto;
     background: white;
 }
@@ -47,4 +47,20 @@ hr {
 .no-posts {
     font-style: italic;
     color: gray;
+}
+
+.content form {
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 45%;
+}
+
+.content label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.content input {
+    margin-bottom: 1em;
 }
