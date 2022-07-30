@@ -9,9 +9,11 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import LoginManager, UserMixin, current_user, logout_user, login_user, login_required
+import os
 
 app = Flask("Ola")
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
+db_url = os.environ.get('DATABASE_URL') or "sqlite:///app.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = db_url.replace('postgres', 'postgresql')
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = "pudim"
 
